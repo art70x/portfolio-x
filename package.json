@@ -7,7 +7,10 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nr build && nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "predev": "nr lint:fix && clear"
   },
   "dependencies": {
     "@iconify-json/mdi": "^1.2.3",
@@ -18,10 +21,14 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
+    "@nuxt/eslint": "1.4.1",
     "@nuxt/fonts": "0.11.4",
     "@nuxtjs/seo": "3.0.3",
     "@tailwindcss/vite": "^4.1.8",
-    "tailwindcss": "^4.1.8"
+    "eslint": "^9.28.0",
+    "nuxi": "^3.25.1",
+    "tailwindcss": "^4.1.8",
+    "typescript": "^5.8.3"
   },
   "packageManager": "pnpm@10.12.1"
 }
