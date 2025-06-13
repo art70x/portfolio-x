@@ -8,9 +8,11 @@
     "generate": "nuxt generate",
     "preview": "nr build && nuxt preview",
     "postinstall": "nuxt prepare",
+    "format": "prettier -w *.ts app",
+    "format:watch": "onchange \"app\" -- prettier -w --ignore-unknown {{changed}}",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "predev": "nr lint:fix && clear"
+    "predev": "nr lint:fix && nr format && clear"
   },
   "dependencies": {
     "@iconify-json/mdi": "^1.2.3",
@@ -26,6 +28,10 @@
     "@nuxtjs/seo": "3.0.3",
     "@tailwindcss/vite": "^4.1.8",
     "eslint": "^9.28.0",
+    "onchange": "^7.1.0",
+    "prettier": "^3.5.3",
+    "prettier-plugin-css-order": "^2.1.2",
+    "prettier-plugin-tailwindcss": "^0.6.12",
     "nuxi": "^3.25.1",
     "tailwindcss": "^4.1.8",
     "typescript": "^5.8.3"

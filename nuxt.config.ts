@@ -39,7 +39,7 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()],
   },
 
-  modules: ['@nuxt/icon', '@nuxtjs/seo', '@nuxt/fonts'],
+  modules: ['@nuxt/eslint', '@nuxt/icon', '@nuxtjs/seo', '@nuxt/fonts'],
 
   site: {
     url: 'https://art70x.vercel.app',
@@ -60,7 +60,7 @@ export default defineNuxtConfig({
         'https://twitter.com/art70x',
         'https://github.com/art70x',
         'https://dev.to/art70x',
-        'https://art70x.vercel.app'
+        'https://art70x.vercel.app',
       ],
     }),
   },
