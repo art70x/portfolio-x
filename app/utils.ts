@@ -95,15 +95,6 @@ const data = {
   projects: [
     {
       id: 1,
-      title: 'Sitescrape',
-      subtitle: 'Web Scraping Tool',
-      description:
-        'A powerful web scraping tool for extracting data from websites with customizable selectors and export options.',
-      tags: ['Nuxtjs', 'TailwindCSS', 'Metascrape'],
-      link: 'https://sitescrape.vercel.app/?ref=art70x&utm_source=portfolio',
-    },
-    {
-      id: 2,
       title: 'Portfolio',
       subtitle: 'Personal Website',
       description:
