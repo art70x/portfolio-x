@@ -102,6 +102,15 @@ const data = {
       tags: ['Nuxtjs', 'TailwindCSS'],
       link: 'https://art70x.vercel.app/?ref=art70x&utm_source=portfolio',
     },
+    {
+      id: 2,
+      title: 'SEO Rush',
+      subtitle: 'AI Driven SEO Analysis',
+      description:
+        'Get an instant, AI-powered SEO analysis of any website. Uncover insights, check your meta tags, and improve your ranking.',
+      tags: ['Nextjs', 'ShadCN', 'TailwindCSS'],
+      link: 'https://seo-rush.vercel.app/?ref=art70x&utm_source=portfolio',
+    },
   ],
   socials: [
     {
