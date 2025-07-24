@@ -69,7 +69,8 @@ export default defineNuxtConfig({
 
   features: {
     inlineStyles: (vueComponent) => {
-      return vueComponent.includes('layouts/') || vueComponent.includes('components/critical/')
+      return typeof vueComponent === 'string' &&
+        (vueComponent.includes('layouts/') || vueComponent.includes('components/critical/'))
     },
   },
 
