@@ -32,7 +32,7 @@ defineOgImageComponent('NuxtSeo', {
       id="home"
       ref="home"
       aria-labelledby="hero-title"
-      class="section bg-gradient-to-b from-background/80 to-background/85 py-16 text-foreground md:py-24"
+      class="section bg-gradient-to-b from-background/80 to-background/85 py-12 text-foreground md:py-24"
     >
       <div class="container mx-auto px-4">
         <div class="flex flex-col items-center gap-10 md:flex-row">
@@ -64,51 +64,8 @@ defineOgImageComponent('NuxtSeo', {
               </a>
             </div>
           </div>
-          <div
-            aria-label="Art70x logo"
-            role="img"
-            class="mt-10 flex justify-center md:mt-0 md:w-1/2"
-          >
-            <div class="relative">
-              <div
-                class="h-64 w-64 overflow-hidden rounded-full bg-gradient-to-br from-primary to-secondary shadow-xl md:h-80 md:w-80"
-              >
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div class="text-8xl font-bold text-zinc-100">A <sup>x</sup></div>
-                </div>
-              </div>
-              <div class="absolute -top-4 -left-4 h-24 w-24 rounded-full bg-primary/80" />
-              <div class="absolute -right-4 -bottom-4 h-16 w-16 rounded-full bg-secondary/80" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section
-      id="skills"
-      ref="skillsRef"
-      aria-labelledby="skills-title"
-      class="section bg-gradient-to-b from-background/85 to-background/90 py-16"
-    >
-      <div class="container mx-auto px-4">
-        <h2 id="skills-title" class="title">Technical Skills</h2>
-        <p class="desc">
-          I've worked with a variety of technologies across the web development stack
-        </p>
-
-        <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
-          <div v-for="skill in data.skills" :key="skill.name" class="flex flex-col items-center">
-            <div
-              class="group mb-4 flex size-24 items-center justify-center rounded-full hover:scale-105"
-              :class="skill.bgColor"
-            >
-              <Icon
-                :name="skill.icon"
-                :class="[skill.textColor, 'scale-95 text-5xl group-hover:scale-105']"
-              />
-            </div>
-            <h3 class="text-xl font-semibold">{{ skill.name }}</h3>
-            <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">{{ skill.level }}</p>
+          <div class="mt-6 flex justify-center md:mt-0 md:w-1/2">
+            <ProfileCard />
           </div>
         </div>
       </div>
@@ -117,7 +74,7 @@ defineOgImageComponent('NuxtSeo', {
       id="projects"
       ref="projectsRef"
       aria-labelledby="projects-title"
-      class="section bg-gradient-to-b from-background/90 to-background/95 py-16 text-foreground"
+      class="section bg-gradient-to-b from-background/85 to-background/90 py-12 text-foreground"
     >
       <div class="container mx-auto px-4">
         <h2 id="projects-title" class="title">Featured Projects</h2>
@@ -126,7 +83,7 @@ defineOgImageComponent('NuxtSeo', {
           <div
             v-for="project in data.projects"
             :key="project.id"
-            class="overflow-hidden rounded-xl border bg-zinc-100 shadow-md ta-300 hover:bg-zinc-200 dark:bg-zinc-950 dark:hover:bg-zinc-900"
+            class="spotlight overflow-hidden rounded-xl border shadow-md ta-300"
           >
             <div class="p-6">
               <div class="mb-4 flex items-start justify-between">
@@ -150,7 +107,7 @@ defineOgImageComponent('NuxtSeo', {
                 <span
                   v-for="tag in project.tags"
                   :key="tag"
-                  class="rounded-full bg-zinc-200 px-3 py-1 text-sm dark:bg-zinc-800"
+                  class="rounded-full bg-muted px-3 py-1 text-sm"
                 >
                   {{ tag }}
                 </span>
@@ -170,10 +127,35 @@ defineOgImageComponent('NuxtSeo', {
       </div>
     </section>
     <section
+      id="skills"
+      ref="skillsRef"
+      aria-labelledby="skills-title"
+      class="section bg-gradient-to-b from-background/90 to-background/95 py-12"
+    >
+      <div class="container mx-auto px-4">
+        <h2 id="skills-title" class="title">Technical Skills</h2>
+        <p class="desc">
+          I've worked with a variety of technologies across the web development stack
+        </p>
+
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+          <div v-for="skill in data.skills" :key="skill.name" class="flex flex-col items-center">
+            <div
+              class="group mb-4 flex size-24 items-center justify-center rounded-full hover:scale-105"
+            >
+              <Icon :name="skill.icon" :class="['scale-95 text-5xl group-hover:scale-105']" />
+            </div>
+            <h3 class="text-xl font-semibold">{{ skill.name }}</h3>
+            <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">{{ skill.level }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
       id="socials"
       ref="socialsRef"
       aria-labelledby="socials-title"
-      class="section bg-gradient-to-b from-background/95 to-background py-16 text-foreground md:py-24"
+      class="section bg-gradient-to-b from-background/95 to-background py-12 text-foreground md:py-24"
     >
       <div class="container mx-auto px-4">
         <h2 id="socials-title" class="title">Connect With Me</h2>
@@ -182,7 +164,7 @@ defineOgImageComponent('NuxtSeo', {
           <div
             v-for="social in data.socials"
             :key="social.id"
-            class="social-item mb-4 rounded-lg border-[1px] bg-zinc-100 p-4 shadow-sm hover:bg-zinc-200 dark:bg-zinc-950/80 dark:hover:bg-zinc-900"
+            class="social-item mb-4 rounded-lg border-[1px] bg-gray-100 p-4 shadow-sm hover:bg-gray-200 dark:bg-gray-950/80 dark:hover:bg-gray-900"
           >
             <div class="flex items-center gap-4">
               <div

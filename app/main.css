@@ -15,7 +15,7 @@
     opacity,
     box-shadow,
     transform,
-    translate,
+    trangray,
     scale,
     rotate,
     filter,
@@ -66,31 +66,31 @@
 }
 
 :root {
-  --background: var(--color-zinc-50);
+  --background: var(--color-gray-50);
   --foreground: var(--color-gray-900);
 
-  --primary: var(--color-indigo-500);
-  --primary-hover: var(--color-indigo-600);
+  --primary: #622bfc;
+  --primary-hover: #5217e6;
 
-  --secondary: var(--color-purple-500);
-  --secondary-hover: var(--color-purple-600);
+  --secondary: #5c1ce5;
+  --secondary-hover: #6b2ef9;
 
-  --muted: var(--color-zinc-300);
-  --muted-hover: var(--color-zinc-200);
+  --muted: var(--color-gray-300);
+  --muted-hover: var(--color-gray-200);
 }
 
 .dark {
-  --background: var(--color-zinc-950);
+  --background: var(--color-gray-950);
   --foreground: var(--color-gray-100);
 
-  --primary: var(--color-indigo-600);
-  --primary-hover: var(--color-indigo-500);
+  --primary: #5217e6;
+  --primary-hover: #622bfc;
 
-  --secondary: var(--color-purple-600);
-  --secondary-hover: var(--color-purple-500);
+  --secondary: #6b2ef9;
+  --secondary-hover: #5c1ce5;
 
-  --muted: var(--color-zinc-800);
-  --muted-hover: var(--color-zinc-700);
+  --muted: var(--color-gray-800);
+  --muted-hover: var(--color-gray-700);
 }
 
 @layer base {
@@ -113,7 +113,7 @@
     overflow-y: auto;
     font-style: normal;
     font-stretch: 100%;
-    font-family: 'Manrope', Roboto, 'Segoe UI', sans-serif;
+    font-family: 'Satoshi', Roboto, 'Segoe UI', sans-serif;
     font-optical-sizing: auto;
     font-variation-settings: normal;
     font-feature-settings: normal;
@@ -129,6 +129,42 @@
   h2,
   h3,
   h4 {
-    @apply text-zinc-800 dark:text-zinc-200;
+    @apply text-gray-800 dark:text-gray-200;
   }
+}
+
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0deg;
+}
+
+@keyframes border-spin {
+  100% {
+    --border-angle: 360deg;
+  }
+}
+
+.spotlight {
+  --border-angle: 0deg;
+  animation: border-spin 6s linear infinite;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  background:
+    linear-gradient(
+        45deg,
+        var(--color-gray-900),
+        var(--color-gray-800) 50%,
+        var(--color-gray-950)
+      )
+      padding-box,
+    conic-gradient(
+        from var(--border-angle),
+        rgba(71, 85, 105, 0.48) 80%,
+        #14b8a6 86%,
+        #67e8f9 90%,
+        #14b8a6 94%,
+        rgba(71, 85, 105, 0.48) 100%
+      )
+      border-box;
 }

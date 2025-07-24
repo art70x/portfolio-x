@@ -36,7 +36,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div>
+  <FadeContent :blur="true" :delay="50" :duration="200" easing="ease-out">
     <div
       class="fixed top-0 left-0 z-50 h-1 w-full bg-gradient-to-r from-primary to-secondary"
       :style="{ width: scrollProgress + '%' }"
@@ -50,15 +50,14 @@ onBeforeUnmount(() => {
       id="backToTop"
       class="fixed right-4 bottom-4 z-40 grid size-12 place-items-center rounded-full bg-indigo-600 text-gray-100 shadow-lg ta-300 dark:bg-purple-600"
       :class="{
-        'translate-y-0 opacity-100': showBackToTop,
-        'translate-y-10 opacity-0': !showBackToTop,
+        'trangray-y-0 opacity-100': showBackToTop,
+        'trangray-y-10 opacity-0': !showBackToTop,
       }"
       aria-label="Back To Top"
       @click="scrollToTop"
     >
       <Icon name="mdi:arrow-up" class="text-xl" />
     </button>
-
     <div class="relative flex min-h-screen flex-col justify-between overflow-x-hidden">
       <NavBar />
       <main class="flex-grow">
@@ -66,5 +65,5 @@ onBeforeUnmount(() => {
       </main>
     </div>
     <AppFooter />
-  </div>
+  </FadeContent>
 </template>

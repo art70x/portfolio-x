@@ -42,54 +42,37 @@ const data = {
     {
       name: 'JavaScript',
       level: 'Expert',
-      icon: 'mdi:language-javascript',
-      bgColor:
-        'bg-yellow-100 hover:bg-yellow-200 dark:bg-yellow-900/30 dark:hover:bg-yellow-800/30',
-      textColor: 'text-yellow-600 dark:text-yellow-400',
+      icon: 'logos:javascript',
     },
     {
       name: 'VueJS',
       level: 'Advanced',
-      icon: 'mdi:vuejs',
-      bgColor: 'bg-green-100 hover:bg-green-200 dark:bg-green-900/30 dark:hover:bg-green-800/30',
-      textColor: 'text-green-500 dark:text-green-400',
+      icon: 'logos:vue',
     },
     {
       name: 'NuxtJS',
       level: 'Advanced',
-      icon: 'mdi:nuxt',
-      bgColor:
-        'bg-emerald-100 hover:bg-emerald-200 dark:bg-emerald-900/30 dark:hover:bg-emerald-800/30',
-      textColor: 'text-emerald-500 dark:text-emerald-400',
+      icon: 'logos:nuxt-icon',
     },
     {
       name: 'TailwindCSS',
       level: 'Advanced',
-      icon: 'mdi:tailwind',
-      bgColor: 'bg-cyan-100 hover:bg-cyan-200 dark:bg-cyan-900/30 dark:hover:bg-cyan-800/30',
-      textColor: 'text-cyan-500 dark:text-cyan-400',
+      icon: 'logos:tailwindcss-icon',
     },
     {
       name: 'TypeScript',
       level: 'Beginners',
-      icon: 'mdi:language-typescript',
-      bgColor: 'bg-sky-100 hover:bg-sky-200 dark:bg-sky-900/30 dark:hover:bg-sky-800/30',
-      textColor: 'text-sky-600 dark:text-sky-400',
+      icon: 'logos:typescript-icon',
     },
     {
       name: 'HTML5',
       level: 'Expert',
-      icon: 'mdi:language-html5',
-      bgColor:
-        'bg-orange-100 hover:bg-orange-200 dark:bg-orange-900/30 dark:hover:bg-orange-800/30',
-      textColor: 'text-orange-600 dark:text-orange-400',
+      icon: 'logos:html-5',
     },
     {
       name: 'CSS3',
       level: 'Expert',
-      icon: 'mdi:language-css3',
-      bgColor: 'bg-blue-100 hover:bg-blue-200 dark:bg-blue-900/30 dark:hover:bg-blue-800/30',
-      textColor: 'text-blue-600 dark:text-blue-400',
+      icon: 'logos:css-3',
     },
   ],
   projects: [

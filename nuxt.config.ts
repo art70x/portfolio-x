@@ -1,13 +1,8 @@
 import tailwindcss from '@tailwindcss/vite'
-import { definePerson } from 'nuxt-schema-org/schema'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2025-05-15',
-
-  future: {
-    compatibilityVersion: 4,
-  },
+  compatibilityDate: '2025-07-15',
 
   devtools: { enabled: true },
 
@@ -18,15 +13,8 @@ export default defineNuxtConfig({
     },
   },
 
-  build: {
-    minify: 'terser',
-    terser: {
-      terserOptions: {
-        compress: {
-          drop_console: true,
-        },
-      },
-    },
+  vite: {
+    plugins: [tailwindcss()],
   },
 
   app: {
@@ -35,11 +23,14 @@ export default defineNuxtConfig({
 
   css: ['@/main.css'],
 
-  vite: {
-    plugins: [tailwindcss()],
-  },
-
-  modules: ['@nuxt/eslint', '@nuxt/icon', '@nuxtjs/seo', '@nuxt/fonts'],
+  modules: [
+    '@nuxt/eslint',
+    '@nuxt/icon',
+    '@nuxtjs/seo',
+    '@nuxt/fonts',
+    '@nuxtjs/fontaine',
+    '@vueuse/nuxt',
+  ],
 
   site: {
     url: 'https://art70x.vercel.app',
@@ -48,21 +39,25 @@ export default defineNuxtConfig({
       'Frontend developer skilled in modern frontend technologies, especially Nuxt.js. Focused on building fast, responsive, and accessible web interfaces.',
   },
 
-  schemaOrg: {
-    identity: definePerson({
-      name: 'art70x',
-      description: 'A frontend web developer currently working with UI/UX and a11y',
+  robots: {
+    UserAgent: '*',
+    Allow: '/',
+    Sitemap: 'https://art70x.vercel.app/sitemap.xml',
+    Disallow: ['/admin', '/_nuxt'],
+  },
 
-      // email: 'art70x@example.com',
-      url: 'https://art70x.vercel.app',
-
-      sameAs: [
-        'https://twitter.com/art70x',
-        'https://github.com/art70x',
-        'https://dev.to/art70x',
-        'https://art70x.vercel.app',
-      ],
-    }),
+  sitemap: {
+    defaults: {
+      lastmod: new Date().toISOString(),
+      priority: 0.9,
+      changefreq: 'weekly',
+    },
+    xslColumns: [
+      { label: 'URL', width: '50%' },
+      { label: 'Last Modified', select: 'sitemap:lastmod', width: '25%' },
+      { label: 'Priority', select: 'sitemap:priority', width: '12.5%' },
+      { label: 'Change Frequency', select: 'sitemap:changefreq', width: '12.5%' },
+    ],
   },
 
   fonts: {
@@ -72,12 +67,22 @@ export default defineNuxtConfig({
     },
   },
 
+  features: {
+    inlineStyles: (vueComponent) => {
+      return vueComponent.includes('layouts/') || vueComponent.includes('components/critical/')
+    },
+  },
+
   experimental: {
     renderJsonPayloads: true,
-    inlineSSRStyles: true,
+    browserDevtoolsTiming: true,
+    buildCache: true,
   },
 
   routeRules: {
+    '/': {
+      sitemap: { priority: 0.9 },
+    },
     '/*.{svg,css,woff2,png}': {
       swr: true,
       cache: {
